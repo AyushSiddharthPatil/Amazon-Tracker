@@ -1,0 +1,255 @@
+/* Instagram-Inspired Heavy CSS Theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to right, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+  color: #262626;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Navbar */
+.navbar {
+  background-color: white;
+  border-radius: 16px;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-family: 'Grand Hotel', cursive;
+  font-size: 2.5rem;
+  color: #262626;
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #d62976;
+}
+
+/* Form */
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+  font-weight: 500;
+  color: #555;
+}
+
+.form-control {
+  border-radius: 12px;
+  padding: 0.75rem;
+  border: 1px solid #dbdbdb;
+  margin-bottom: 1.25rem;
+}
+
+.btn-custom {
+  background: linear-gradient(to right, #fa7e1e, #d62976);
+  border: none;
+  padding: 0.75rem 2rem;
+  color: white;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn-custom:hover {
+  background: linear-gradient(to right, #d62976, #fa7e1e);
+}
+
+/* Table */
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 2rem 0;
+  font-weight: 700;
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background: linear-gradient(to right, #fa7e1e, #d62976);
+  color: white;
+}
+
+table th, table td {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: white;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+  }
+
+  td::before {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    width: 45%;
+    font-weight: 600;
+    color: #888;
+  }
+
+  td:nth-of-type(1)::before { content: "Email"; }
+  td:nth-of-type(2)::before { content: "URL"; }
+  td:nth-of-type(3)::before { content: "Title"; }
+  td:nth-of-type(4)::before { content: "Date Created"; }
+}
+.tracked table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fafafa;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tracked thead tr {
+  background: #405de6; /* Instagram Blue/Purple */
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  box-shadow: 0 3px 8px rgba(64, 93, 230, 0.5);
+}
+
+.tracked thead th {
+  padding: 14px 20px;
+  border: none;
+}
+
+.tracked tbody tr {
+  background: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+  border-radius: 12px;
+}
+
+.tracked tbody tr:hover {
+  box-shadow: 0 8px 20px rgba(64, 93, 230, 0.3);
+  transform: translateY(-3px);
+}
+
+.tracked tbody td {
+  padding: 16px 20px;
+  color: #262626;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+}
+
+.tracked tbody td a {
+  color: #833ab4; /* Instagram gradient purple */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.tracked tbody td a:hover {
+  color: #fd1d1d; /* Instagram red */
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .tracked table,
+  .tracked thead,
+  .tracked tbody,
+  .tracked th,
+  .tracked td,
+  .tracked tr {
+    display: block;
+  }
+
+  .tracked thead tr {
+    display: none;
+  }
+
+  .tracked tbody tr {
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(64, 93, 230, 0.15);
+  }
+
+  .tracked tbody td {
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .tracked tbody td::before {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: 700;
+    color: #405de6;
+  }
+
+  .tracked tbody td:nth-of-type(1)::before { content: "Title"; }
+  .tracked tbody td:nth-of-type(2)::before { content: "Product URL"; }
+  .tracked tbody td:nth-of-type(3)::before { content: "Email"; }
+  .tracked tbody td:nth-of-type(4)::before { content: "Date Tracked"; }
+}
