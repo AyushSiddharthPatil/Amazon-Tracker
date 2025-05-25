@@ -36,13 +36,6 @@
                 </div>
             </div>
 
-            {% if message %}
-            <div class="alert alert-info text-center">
-                {{ message }}
-            </div>
-            {% endif %}
-
-
             <div class="text-center">
                 <button type="submit" class="btn btn-custom px-4">Track</button>
             </div>
@@ -71,7 +64,7 @@
             <td>{{product.title or 'N/A'}}</td>
             <td><a href="{{product.url}}" target="_blank">Buy At Amazon</a></td>
             <td>{{ product.email }}</td>
-            <td>{{ product.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            <td>{{ product.date_created.strftime("%d-%m-%Y %I:%M:%S %p") }}</td>
 
         </tr>
 
