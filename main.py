@@ -32,50 +32,56 @@ class GetPrice:
         if target_price is None:
             print("Price not set.")
             return
-        if float(self.price.replace(',', '')) <= target_price:
+        if float(self.price.replace(',', '')) <= int(target_price):
             print(f"Target Price Hit !!!, Price = {self.price}, Title: {self.title}")
         else:
             print(f"Price {self.price} is still above your target price {target_price}")
 
 
 # Sending Email
+class SendEmail:
 
-def send_email(user_email):
-    with smtplib.SMTP("smtp.gmail.com") as connection:
-        my_email = "ayush.patil.new007@gmail.com"
-        password = "qwnprwdmxogxnyzl"  # created with app passwords and created a new app
-        connection.starttls()  # Transport Layer Security, secures our connection by encrypting our message
-        connection.login(user=my_email, password=password)
-        connection.sendmail(from_addr=my_email,
-                            to_addrs=user_email,
-                            msg="Subject:Amazon Price Alert\n\nYour product price has been tracked.")
+    def send_email(self, email):
+        try:
+            with smtplib.SMTP("smtp.gmail.com") as connection:
+                my_email = "ayush.patil.new007@gmail.com"
+                password = "qwnprwdmxogxnyzl"  # created with app passwords and created a new app
+                connection.starttls()  # Transport Layer Security, secures our connection by encrypting our message
+                connection.login(user=my_email, password=password)
+                connection.sendmail(from_addr=my_email,
+                                    to_addrs=email,
+                                    msg="Subject:Amazon Price Alert\n\nYour product price has been tracked.")
+            return True
 
-
-username = []
-password = []
-
-
-def register():
-    username.append(input("Enter your username"))
-    password.append(input("Enter your password"))
+        except Exception as e:
+            print("Email error:", e)
+            return False
 
 
-def login():
-    username = input("Enter your username: ")
-    password = input("Enter your password: ")
-    if username in username and password in password:
-        print("Welcome")
-    else:
-        print("No user Found")
+# username = []
+# password = []
 
 
-while True:
-    acc_ans = input("Choose: a) Sign Up     b)Login     c)Quit")
-    if acc_ans == "a":
-        register()
-    elif acc_ans == "b":
-        login()
-    elif acc_ans == "c":
-        break
+# def register():
+#     username.append(input("Enter your username"))
+#     password.append(input("Enter your password"))
+
+
+# def login():
+#     username = input("Enter your username: ")
+#     password = input("Enter your password: ")
+#     if username in username and password in password:
+#         print("Welcome")
+#     else:
+#         print("No user Found")
+#
+#
+# while True:
+#     acc_ans = input("Choose: a) Sign Up     b)Login     c)Quit")
+#     if acc_ans == "a":
+#         register()
+#     elif acc_ans == "b":
+#         login()
+#     elif acc_ans == "c":
+#         break
 # connection.close() # if you don' want to write this then do above
-

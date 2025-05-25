@@ -27,8 +27,24 @@
                 <label for="url" class="form-label">Amazon Product URL</label>
                 <input name="url" type="url" class="form-control" id="url" required>
             </div>
+
+            <div class="mb-auto">
+                <label for="target" class="form-label">Target Price</label>
+                <div class="input-group">
+                    <span class="input-group-text mb-auto">₹</span>
+                    <input name="target" type="number" class="form-control" id="target" required>
+                </div>
+            </div>
+
+            {% if message %}
+            <div class="alert alert-info text-center">
+                {{ message }}
+            </div>
+            {% endif %}
+
+
             <div class="text-center">
-                <button type="submit" class="btn btn-custom px-4">Add</button>
+                <button type="submit" class="btn btn-custom px-4">Track</button>
             </div>
         </form>
     </div>
@@ -47,17 +63,21 @@
         </tr>
         </thead>
         <tbody>
+
         {% for product in all_products %}
 
         <tr>
-             <td>{{ product.email }}</td>
-             <td><a href="{product.url}}" target="_blank">Link</a> </td>
-             <td>{{product.title or 'N/A'}}</td>
-             <td>{{ product.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+
+            <td>{{product.title or 'N/A'}}</td>
+            <td><a href="{{product.url}}" target="_blank">Buy At Amazon</a></td>
+            <td>{{ product.email }}</td>
+            <td>{{ product.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+
         </tr>
 
 
         {% endfor %}
+
         </tbody>
     </table>
 </div>
