@@ -57,7 +57,7 @@ def create_tables():
     db.create_all()
 
 
-@app.route("/home", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def home():
     title = None
     message = None
