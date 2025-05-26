@@ -20,9 +20,9 @@
         <h4 class="mb-3 text-center">Track a New Product</h4>
 
         {% if message %}
-        <div class="alert alert-info text-center" role="alert">
-            {{ message }}
-        </div>
+            <div class="alert alert-info text-center" role="alert">
+                {{ message }}
+            </div>
         {% endif %}
 
         <form method="POST" action="/">
@@ -39,7 +39,7 @@
             <div class="mb-3">
                 <label for="target" class="form-label">Target Price</label>
                 <div class="input-group">
-                    <span class="input-group-text">₹</span>
+                    <span class="input-group-text mb-auto">₹</span>
                     <input name="target" type="number" class="form-control" id="target" required>
                 </div>
             </div>
@@ -51,7 +51,7 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container mb-5">
     <h2 class="mb-3">Tracked Products</h2>
 
     <table class="table table-bordered table-hover">
@@ -65,12 +65,12 @@
         </thead>
         <tbody>
         {% for product in all_products %}
-        <tr>
-            <td>{{ product.title or 'N/A' }}</td>
-            <td><a href="{{ product.url }}" target="_blank">Buy at Amazon</a></td>
-            <td>{{ product.email }}</td>
-            <td>{{ product.date_created.strftime("%d-%m-%Y %I:%M:%S %p") }}</td>
-        </tr>
+            <tr>
+                <td>{{ product.title or 'N/A' }}</td>
+                <td><a href="{{ product.url }}" target="_blank">Buy at Amazon</a></td>
+                <td>{{ product.email }}</td>
+                <td>{{ product.date_created.strftime("%d-%m-%Y %I:%M:%S %p") }}</td>
+            </tr>
         {% endfor %}
         </tbody>
     </table>

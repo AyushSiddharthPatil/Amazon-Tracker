@@ -77,7 +77,7 @@ def index():
 
         try:
             target = int(target)
-            if float(price.replace(",", "")) <= target:
+            if float(price.replace(",", "")) <= int(target):
                 message = f"✅ Price ₹{price} is below or equal to your target ₹{target}."
                 SendEmail().send_email(email)
             else:
