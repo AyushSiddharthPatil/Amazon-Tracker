@@ -1,5 +1,5 @@
 import pytz
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import pytz
@@ -55,6 +55,11 @@ class Amazon(db.Model):
 
 def create_tables():
     db.create_all()
+
+
+@app.route("/")
+def index():
+    return redirect(url_for('/home'))
 
 
 @app.route("/home", methods=['GET', 'POST'])
