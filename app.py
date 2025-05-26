@@ -48,7 +48,7 @@ def check_prices():
                     db.session.commit()
                     print(f"✅ Email sent to {product.email} for {product.title}")
             except Exception as e:
-                print(f"❌ Error checking price for {product.title}: {e}")
+                print(f"Error checking price for {product.title}: {e}")
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -68,7 +68,7 @@ def index():
         try:
             price, title = price_checker.get_price(url)
         except Exception as e:
-            print("❌ Could not fetch product title or price:", e)
+            print("Could not fetch product title or price:", e)
             title = "N/A"
             price = "0"
 
